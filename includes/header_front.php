@@ -1,7 +1,7 @@
 <?php include 'config/config.php'?>
-<?php include 'config/Basemysql.php'?>
-<?php include 'helpers/helper_formatos.php'?>
-<?php include 'models/Articulo.php'?>
+
+
+
 <?php include 'models/Comentario.php'?>
 <?php include 'models/Usuario.php'?>
 

@@ -1,10 +1,8 @@
-<?php
-include_once './includes/header_front.php';
-?>
+<?php include_once './includes/header_front.php'; ?>
 <div class="container">
     <h1 class="text-center">Artículos</h1>
     <div class="row justify-content-center"> <!-- Añadimos la clase justify-content-center para centrar las tarjetas -->
-        <?php var_dump($resultado); foreach($resultado as $articulo) : ?>
+        <?php foreach($resultado as $articulo) : ?>
             <div class="col-sm-4 mb-4"> <!-- Añadimos la clase mb-4 para un poco de espacio entre las tarjetas -->
                 <div class="card h-100"> <!-- Añadimos la clase h-100 para asegurar que todas las tarjetas tengan la misma altura -->
                     <img src="<?php echo "http://localhost/github/blog/"; ?>img/articulos/<?php echo $articulo->imagen; ?>" class="card-img-top img-fluid" style="height: 200px; object-fit: cover;"> <!-- Establecemos la altura fija de la imagen y el estilo object-fit para que la imagen se ajuste al contenedor -->
@@ -19,6 +17,9 @@ include_once './includes/header_front.php';
         <?php endforeach; ?>
     </div>
 </div>
+
+
+<?php include_once './includes/footer.php'; ?>
 
 
 <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
