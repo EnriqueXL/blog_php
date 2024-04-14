@@ -1,6 +1,7 @@
 <?php
 
-    //Rutas del proyecto
+    //Ruta absoluta del proyecto
+    define('BASE_PATH', '/github/blog');
 
     // Para el admin
     define('RUTA_ADMIN', 'http://localhost/github/blog/admin/');

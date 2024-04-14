@@ -6,6 +6,7 @@ error_reporting(E_ALL);
 
 // Router.php
 include_once 'ArticuloController.php';
+include_once './config/config.php';
 
 class Router {
 
@@ -18,12 +19,12 @@ class Router {
 
     public function resolve() {
         $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-        $path = str_replace('/github/blog', '', $path); // Asegúrate de reemplazar '/github/blog' con la ruta base de tu aplicación
+        $path = str_replace(BASE_PATH, '', $path); // Asegúrate de reemplazar '/github/blog' con la ruta base de tu aplicación
     
         $callback = $this->routes[$path] ?? false;
     
         if ($callback === false) {
-            echo "Página no encontrada";
+            require_once("./views/404.php"); 
             return;
         }
     
@@ -33,13 +34,13 @@ class Router {
 
 $router = new Router();
 
-// $router->get('/', 'ArticuloController::index');
+$router->get('/inicio', 'ArticuloController::index');
 
-$router->get('/', function() {
+// $router->get('/index.php', function() {
     
-    $articuloController = new ArticuloController();
-    return $articuloController->index();
-});
+//     $articuloController = new ArticuloController();
+//     return $articuloController->index();
+// });
 
 // $router->get('/about', function() {
 //     echo "About Page";
