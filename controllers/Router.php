@@ -6,6 +6,7 @@ error_reporting(E_ALL);
 
 // Router.php
 include_once 'ArticuloController.php';
+include_once 'DetalleArticuloController.php';
 include_once './config/config.php';
 
 class Router {
@@ -35,6 +36,11 @@ class Router {
 $router = new Router();
 
 $router->get('/inicio', 'ArticuloController::index');
+
+$router->get('/', 'ArticuloController::index');
+
+//Acceder a los detalles de cada articulo
+$router->get('/detalle.php', 'DetalleArticuloController::index');
 
 // $router->get('/index.php', function() {
     

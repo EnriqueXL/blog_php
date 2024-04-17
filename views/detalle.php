@@ -1,53 +1,5 @@
 <?php include("includes/header_front.php") ?>
 
-<?php
-
-$baseDatos = new Basemysql();
-$db = $baseDatos->connect();
-
-if (isset($_GET["id"])) {
-    $idArticulo = $_GET["id"];
-}
-
-//Instancimos el objeto
-$articulo = new Articulo($db);
-$resultado = $articulo->leer_individual($idArticulo);
-
-//Instanciar los comentario para este artículo
-$comentarios = new Comentario($db);
-$resultado2 = $comentarios->leerPorId($idArticulo);
-
-// Instancio el usuario de la clase Usuarios para ocupar el metodo de leer indiviual y recuperar el email de cada usuario
-$usuario = new Usuario($db);
-$resultado3 = $usuario->leer_individual($idArticulo);
-
-
-//Crear comentario
-if (isset($_POST['enviarComentario'])) {
-    //Obtener los valores
-    $idArticulo = $_POST['articulo'];
-    $email = $_POST['usuario'];
-    $comentario = $_POST['comentario'];
-
-    if (empty($email) || $email == '' || empty($comentario) || $comentario == '') {
-        $error = "Error, algunos campos están vacíos";
-    } else {
-        //Instanciamos el comentario
-        $comentarioObj = new Comentario($db);
-
-        if ($comentarioObj->crear($email, $comentario, $idArticulo)) {
-            $mensaje = "Comentario creado correctamente";
-            echo ("<script>location.href = '" . RUTA_FRONT . "'</script>");
-        } else {
-            $error = "Error, no se pudo crear el comentario";
-        }
-    }
-}
-
-?>
-
-
-
 <div class="row">
 
 </div>

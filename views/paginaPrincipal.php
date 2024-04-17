@@ -1,4 +1,7 @@
-<?php include_once './includes/header_front.php'; ?>
+<?php 
+    include_once './includes/header_front.php';
+?>
+
 <div class="container">
     <h1 class="text-center">Artículos</h1>
     <div class="row justify-content-center"> <!-- Añadimos la clase justify-content-center para centrar las tarjetas -->
@@ -21,5 +24,3 @@
 
 <?php include_once './includes/footer.php'; ?>
 
-
-<!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->

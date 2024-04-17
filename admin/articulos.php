@@ -3,7 +3,7 @@
 <?php
 
 //intancias la bd y la conexion
-$baseDatos = new Basemysql();
+$baseDatos = new sqlConfig();
 $db = $baseDatos->connect();
 
 //Instancimos el objeto

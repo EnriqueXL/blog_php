@@ -15,9 +15,11 @@ class Usuario
 
 
     //Constructor de nuestra clase
-    public function __construct($db)
+    public function __construct()
     {
-        $this->conn = $db;
+       
+        $baseDatos = new sqlConfig();
+        $this->conn = $baseDatos->connect();
     }
 
 
