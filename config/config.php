@@ -3,8 +3,11 @@
     //Ruta absoluta del proyecto
     define('BASE_PATH', '/github/blog');
 
-    //Ruta absoluta del proyecto
+    //Ruta absoluta del Inicio
     define('INICIO', '/github/blog/inicio');
+
+     //Ruta absoluta para crear comentarios
+     define('CREAR_COMENTARIOS', '/github/blog/agregarComentario.php');
 
     // Para el admin
     // define('RUTA_ADMIN', 'http://localhost/github/blog/admin/');

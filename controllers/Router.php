@@ -40,7 +40,10 @@ $router->get('/inicio', 'ArticuloController::index');
 $router->get('/', 'ArticuloController::index');
 
 //Acceder a los detalles de cada articulo
-$router->get('/detalle.php', 'DetalleArticuloController::index');
+$router->get('/detalle.php', 'DetalleArticuloController::mostrarDetalle');
+
+$router->get('/agregarComentario.php', 'agregarComentarioController::crearComentario');
+
 
 // $router->get('/index.php', function() {
     

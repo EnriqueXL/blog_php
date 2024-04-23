@@ -2,7 +2,7 @@
 <?php
 class DetalleArticuloController {
 
-    public static function index() {
+    public static function mostrarDetalle() {
         require_once "./config/Basemysql.php";
         
         require_once "./models/Articulo.php";
@@ -26,36 +26,34 @@ class DetalleArticuloController {
         $usuario = new Usuario($idArticulo);
         $resultado3 = $usuario->leer_individual($idArticulo);
 
-        // var_dump($resultado);
+    
+         // Crear comentario
+         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+         
+            //Obtener los valores
+            $idArticulo = $_POST['articulo'];
+            $email = $_POST['usuario'];
+            $comentario = $_POST['comentario'];
+        
+            if (empty($email) || $email == '' || empty($comentario) || $comentario == '') {
+                $error = "Error, algunos campos están vacíos";
+            } else {
+                //Instanciamos el comentario
+                $comentarioObj = new Comentario();
 
-        //Crear comentario
-        // if (isset($_POST['enviarComentario'])) {
-        //     //Obtener los valores
-        //     $idArticulo = $_POST['articulo'];
-        //     $email = $_POST['usuario'];
-        //     $comentario = $_POST['comentario'];
+                if ($comentarioObj->crear($email, $comentario, $idArticulo)) {
+                    $mensaje = "Comentario creado correctamente";
+                    
+                    require_once("./views/detalle.php");
+                    exit;
 
-        //     if (empty($email) || $email == '' || empty($comentario) || $comentario == '') {
-        //         $error = "Error, algunos campos están vacíos";
-        //     } else {
-        //         //Instanciamos el comentario
-        //         $comentarioObj = new Comentario($db);
-
-        //         if ($comentarioObj->crear($email, $comentario, $idArticulo)) {
-        //             $mensaje = "Comentario creado correctamente";
-        //             echo ("<script>location.href = '" . RUTA_FRONT . "'</script>");
-        //         } else {
-        //             $error = "Error, no se pudo crear el comentario";
-        //         }
-        //     }
-        // }
-
-        if ($resultado) {
-            require_once("./views/detalle.php");
-            // return $resultado;
-        } else {
-            echo json_encode(array('mensaje' => 'No hay artículos publicados'));
+                } else {
+                    $error = "Error, no se pudo crear el comentario";
+                }
+            }
         }
+
+        require_once("./views/detalle.php");
     }
 }
 ?>

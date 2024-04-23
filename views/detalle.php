@@ -48,23 +48,25 @@
                 </div>
 
                 <br />
-                <button type="submit" name="enviarComentario" class="btn btn-primary w-100"><i class="bi bi-person-bounding-box"></i> Crear Nuevo Comentario</button>
+                <button type="submit" name="enviarComentario" class="btn btn-primary w-100" ><i class="bi bi-person-bounding-box"></i> Crear Nuevo Comentario</button>
             </form>
         </div>
     </div>
 
 </div>
 
+<!--  -->
 <div class="row">
     <h3 class="text-center mt-5">Comentarios</h3>
 
     <?php foreach ($resultado2 as $comentario) : ?>
 
-        <h4><i class="bi bi-person-circle"></i> &nbsp;&nbsp;<?php echo 'Usuario: '; echo $comentario->nombre_usuario; ?></h4>
-        <p><?php echo 'Mensaje: '; echo $comentario->comentario; ?></p>
+        <h4><i class="bi bi-person-circle"></i> &nbsp;&nbsp;<?php echo 'Usuario: ' . $comentario->nombre_usuario; ?></h4>
+        <p><?php echo 'Mensaje: ' . $comentario->comentario; ?></p>
     <?php endforeach; ?>
 
 </div>
+
 
 </div>
 <?php include("includes/footer.php") ?>

@@ -9,13 +9,13 @@ class ArticuloController {
         $resultado = $articulos->leer();
 
         // var_dump($resultado);
-
-        if ($resultado) {
-            require_once("./views/paginaPrincipal.php");
-            // return $resultado;
-        } else {
-            echo json_encode(array('mensaje' => 'No hay artículos publicados'));
-        }
+        require_once("./views/paginaPrincipal.php");
+        // if ($resultado) {
+        //     require_once("./views/paginaPrincipal.php");
+        //     // return $resultado;
+        // } else {
+        //     echo json_encode(array('mensaje' => 'No hay artículos publicados'));
+        // }
     }
 }
 ?>
