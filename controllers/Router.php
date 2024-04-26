@@ -4,11 +4,18 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Router.php
+//Controladores importados
 include_once 'ArticuloController.php';
 include_once 'DetalleArticuloController.php';
+// include_once 'agregarComentarioController.php';
+include_once 'MostrarArticulosAdminController.php';
+include_once 'EditarArticuloController.php';
+
 include_once './config/config.php';
 
+
+
+// Router.php
 class Router {
 
     private $routes = [];
@@ -35,14 +42,27 @@ class Router {
 
 $router = new Router();
 
+// Guia para crear rutas
+//IMPORTAR EL CONTROLADOR QUE SE VA A USAR
+// $router->get('/pagina que se ingresara a la url', 'nombre_de_la_clase::nombre_de_la_funcion');
+
+//Redirijir a la página principal
 $router->get('/inicio', 'ArticuloController::index');
 
+//Redirijir a la página principal
 $router->get('/', 'ArticuloController::index');
 
 //Acceder a los detalles de cada articulo
 $router->get('/detalle.php', 'DetalleArticuloController::mostrarDetalle');
 
-$router->get('/agregarComentario.php', 'agregarComentarioController::crearComentario');
+//Crear Comentarios para los articulos posteados
+// $router->get('/agregarComentario.php', 'agregarComentarioController::crearComentario');
+
+//Ruta para el admin, visor de los articulos
+$router->get('/admin/articulos.php', 'MostrarArticulosAdminController::mostrarArticulosPosteados');
+
+//Ruta para el admin, editar articulos publicados
+$router->get('/admin/editar_articulo.php', 'EditarArticuloController::actualizarArticulo');
 
 
 // $router->get('/index.php', function() {

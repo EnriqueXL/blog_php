@@ -1,17 +1,5 @@
-<?php include("../includes/header.php") ?>
+<?php include_once './includes/header.php'; ?>
 
-<?php
-
-//intancias la bd y la conexion
-$baseDatos = new sqlConfig();
-$db = $baseDatos->connect();
-
-//Instancimos el objeto
-
-$articulo =  new Articulo($db);
-$resultado = $articulo->leer();
-
-?>
 
 
 <div class="row">
@@ -39,8 +27,9 @@ $resultado = $articulo->leer();
             <tbody>
 
                 <?php foreach ($resultado as $articulo){ ?>
-
+                 
                     <tr>
+                     
                         <td><?php echo $articulo->id ?></td>
                         <td><?php echo $articulo->titulo ?></td>
                         <td>
@@ -58,7 +47,7 @@ $resultado = $articulo->leer();
         </table>
     </div>
 </div>
-<?php include("../includes/footer.php") ?>
+<?php include_once './includes/footer.php'; ?>
 
 <script>
     $(document).ready(function() {

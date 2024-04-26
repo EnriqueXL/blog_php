@@ -1,9 +1,5 @@
 <?php include("includes/header_front.php") ?>
 
-<div class="row">
-
-</div>
-
 <div class="container-fluid">
 
     <div class="row">
@@ -55,7 +51,7 @@
 
 </div>
 
-<!--  -->
+<!-- comentarios de los articulos -->
 <div class="row">
     <h3 class="text-center mt-5">Comentarios</h3>
 
