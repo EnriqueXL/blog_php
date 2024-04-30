@@ -43,8 +43,9 @@ class DetalleArticuloController {
 
                 if ($comentarioObj->crear($email, $comentario, $idArticulo)) {
                     $mensaje = "Comentario creado correctamente";
-                    
-                    require_once("./views/detalle.php");
+                    header("Location: " . BASE_PATH . " ");   
+                    // header("Location: " . BASE_PATH . "/detalle.php");   
+                    // require_once("./views/detalle.php");   
                     exit;
 
                 } else {
