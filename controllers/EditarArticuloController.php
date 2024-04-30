@@ -92,8 +92,8 @@ class EditarArticuloController
 
             if ($articulo->borrar($idArticulo)) {
                 $mensaje = "Artículo borrado correctamente";
-                // header("Location:articulos.php?mensaje=" . urlencode($mensaje));
-                include_once './views/viewsAdmin/articulos.php';
+                // include_once './views/viewsAdmin/articulos.php';
+                header("Location: " . RUTA_ADMIN . "articulos.php");  
                 exit;
             } else {
                 $error = "Error, no se pudo borrar";
