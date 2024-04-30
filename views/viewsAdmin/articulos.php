@@ -11,6 +11,12 @@
             Artículo</a>
     </div>
 </div>
+
+<?php 
+    if (isset($mensaje)) {
+        echo '<div class="alert alert-info" role="alert">' . $mensaje . '</div>';
+    }
+?>
 <div class="row mt-2 caja">
     <div class="col-sm-12">
         <table id="tblArticulos" class="display" style="width:100%">
