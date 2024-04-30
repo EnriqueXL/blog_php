@@ -43,8 +43,10 @@ class EditarArticuloController
                         // var_dump($mensaje);
                         $articulo =  new Articulo();
                         $resultado = $articulo->leer();
-                      
-                        include_once './views/viewsAdmin/articulos.php';
+                    
+                        header("Location: " . RUTA_ADMIN . "articulos.php");            
+                        // /github/blog/admin/articulos.php
+                        
                         exit;
                     } else {
                         $error = "Error, no se pudo actualizar";
@@ -68,8 +70,8 @@ class EditarArticuloController
 
                     if ($articulo->actualizar($idArticulo, $titulo, $texto, $newImageName)) {
                         $mensaje = "Artículo acutalizado correctamente";
-                        // header("Location:articulos.php?mensaje=" . urlencode($mensaje));
-                        include_once './views/viewsAdmin/articulos.php';
+                        header("Location: " . RUTA_ADMIN . "articulos.php");   
+                        // include_once './views/viewsAdmin/articulos.php';
                         exit;
                        
                     } else {
