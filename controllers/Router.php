@@ -11,6 +11,7 @@ include_once 'DetalleArticuloController.php';
 include_once 'MostrarArticulosAdminController.php';
 include_once 'EditarArticuloController.php';
 include_once 'CrearArticuloController.php';
+include_once 'ComentariosController.php';
 
 include_once './config/config.php';
 
@@ -68,6 +69,9 @@ $router->get('/admin/articulos.php', 'MostrarArticulosAdminController::mostrarAr
 
 //Ruta para el admin, editar articulos publicados
 $router->get('/admin/editar_articulo.php', 'EditarArticuloController::actualizarArticulo');
+
+//Ruta para el admin, gestionar comentarios
+$router->get('/admin/comentarios.php', 'ComentariosController::mostrarComentarios');
 
 
 // $router->get('/index.php', function() {
