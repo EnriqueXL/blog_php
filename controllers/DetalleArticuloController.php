@@ -26,6 +26,8 @@ class DetalleArticuloController {
         $usuario = new Usuario($idArticulo);
         $resultado3 = $usuario->leer_individual($idArticulo);
 
+        var_dump($resultado3);
+
     
          // Crear comentario
          if ($_SERVER['REQUEST_METHOD'] === 'POST') {

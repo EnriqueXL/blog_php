@@ -10,6 +10,7 @@ include_once 'DetalleArticuloController.php';
 // include_once 'agregarComentarioController.php';
 include_once 'MostrarArticulosAdminController.php';
 include_once 'EditarArticuloController.php';
+include_once 'CrearArticuloController.php';
 
 include_once './config/config.php';
 
@@ -57,6 +58,10 @@ $router->get('/detalle.php', 'DetalleArticuloController::mostrarDetalle');
 
 //Crear Comentarios para los articulos posteados
 // $router->get('/agregarComentario.php', 'agregarComentarioController::crearComentario');
+
+
+//Ruta para el admin, crear articulos (Admin).
+$router->get('/admin/crear_articulo.php', 'CrearArticuloController::crearArticulo');
 
 //Ruta para el admin, visor de los articulos
 $router->get('/admin/articulos.php', 'MostrarArticulosAdminController::mostrarArticulosPosteados');

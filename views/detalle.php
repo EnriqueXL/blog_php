@@ -35,7 +35,7 @@
                 <input type="hidden" name="articulo" value="<?php echo $idArticulo; ?>">
                 <div class="mb-3">
                     <label for="usuario" class="form-label">Usuario:</label>
-                    <input type="text" class="form-control" name="usuario" id="usuario" value="<?php echo $resultado3[0]->usuario_email; ?>">
+                    <input type="text" class="form-control" name="usuario" id="usuario" value="<?php echo isset($resultado3[0]) && is_object($resultado3[0]) ? $resultado3[0]->usuario_email : ''; ?>">
                 </div>
 
                 <div class="mb-3">

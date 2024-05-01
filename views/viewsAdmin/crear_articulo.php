@@ -1,48 +1,6 @@
-<?php include("../includes/header.php") ?>
+<?php include_once './includes/header.php' ?>
 
-<?php
 
-    //Instanciar base de datos y conexión
-    $baseDatos = new Basemysql();
-    $db = $baseDatos->connect();
-
-    if (isset($_POST['crearArticulo'])) {
-
-        //Obtener los valores
-        $titulo = $_POST["titulo"];
-        $texto = $_POST["texto"];
-
-        if ($_FILES["imagen"]["error"] > 0) {
-
-            $error = "Error, ningún archivo seleccionado";
-        } else {
-
-            if (empty($titulo) || $titulo == '' || empty($texto) || $texto == '') {
-
-                $error = "Error, algunos campos están vacíos";
-            } else {
-
-                $image = $_FILES['imagen']['name'];
-                $imageArr = explode('.', $image);
-                $rand = rand(1000, 99999);
-                $newImageName = $imageArr[0] . $rand . '.' . $imageArr[1];
-                $rutaFinal = "../img/articulos/" . $newImageName;
-                
-                move_uploaded_file($_FILES['imagen']['tmp_name'], $rutaFinal);
-
-                $articulo = new Articulo($db);
-
-                if ($articulo->crear($titulo, $newImageName, $texto)) {
-                    $mensaje = "Artículo creado correctamente";
-                    header("Location:articulos.php?mensaje=" . urlencode($mensaje));
-                }else{
-                    $error = "Error al guardar en la base de datos";
-                }
-            }
-        }
-    }
-
-?>
 
     <div class="row">
         <div class="col-sm-12">
@@ -81,4 +39,4 @@
             </form>
         </div>
     </div>
-<?php include("../includes/footer.php") ?>
+    <?php include_once './includes/footer.php' ?>

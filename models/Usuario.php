@@ -49,7 +49,7 @@ class Usuario
         $stmt->bindParam(1, $id);
         $stmt->execute();
         $usuario = $stmt->fetchAll(PDO::FETCH_OBJ);
-       
+         
         return $usuario;
     }
 
