@@ -52,6 +52,9 @@ $router = new Router();
 $router->get('/inicio', 'ArticuloController::index');
 
 //Redirijir a la página principal
+$router->get('/index.php', 'ArticuloController::index');
+
+//Redirijir a la página principal
 $router->get('/', 'ArticuloController::index');
 
 //Acceder a los detalles de cada articulo
@@ -59,7 +62,6 @@ $router->get('/detalle.php', 'DetalleArticuloController::mostrarDetalle');
 
 //Crear Comentarios para los articulos posteados
 // $router->get('/agregarComentario.php', 'agregarComentarioController::crearComentario');
-
 
 //Ruta para el admin, crear articulos (Admin).
 $router->get('/admin/crear_articulo.php', 'CrearArticuloController::crearArticulo');

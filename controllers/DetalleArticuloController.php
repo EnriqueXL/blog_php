@@ -21,7 +21,7 @@ class DetalleArticuloController {
         //Instanciar los comentario para este artículo
         $comentarios = new Comentario();
         $resultado2 = $comentarios->leerPorId($idArticulo);
-        
+     
         // Instancio el usuario de la clase Usuarios para ocupar el metodo de leer indiviual y recuperar el email de cada usuario
         $usuario = new Usuario($idArticulo);
         $resultado3 = $usuario->leer_individual($idArticulo);
@@ -32,15 +32,17 @@ class DetalleArticuloController {
          
             //Obtener los valores
             $idArticulo = $_POST['articulo'];
-            $email = $_POST['usuario'];
+            // $email = $_POST['usuario'];
+            // $email = $_SESSION['email'];
+            $email = 'luis@info.com';
             $comentario = $_POST['comentario'];
-        
+
             if (empty($email) || $email == '' || empty($comentario) || $comentario == '') {
                 $error = "Error, algunos campos están vacíos";
             } else {
                 //Instanciamos el comentario
                 $comentarioObj = new Comentario();
-
+                
                 if ($comentarioObj->crear($email, $comentario, $idArticulo)) {
                     $mensaje = "Comentario creado correctamente";
                     header("Location: " . BASE_PATH . " ");   

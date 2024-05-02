@@ -131,6 +131,7 @@ class Comentario
         $stmt->execute();
 
         $usuario = $stmt->fetch(PDO::FETCH_OBJ);
+    
         $idUsuario = $usuario->id;
 
         //Crear el query para la inserción del comentario
