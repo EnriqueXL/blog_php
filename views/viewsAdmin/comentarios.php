@@ -21,8 +21,8 @@
             </thead>
             <tbody>
 
-                <?php foreach($resultado as $comentario) : ?>
-
+                <?php foreach($listaComentarios as $comentario) : ?>
+                    
                 <tr>
                     <td><?php echo $comentario->id_comentario; ?></td>
                     <td><?php echo $comentario->comentario; ?></td>

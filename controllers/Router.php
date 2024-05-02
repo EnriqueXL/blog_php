@@ -70,8 +70,11 @@ $router->get('/admin/articulos.php', 'MostrarArticulosAdminController::mostrarAr
 //Ruta para el admin, editar articulos publicados
 $router->get('/admin/editar_articulo.php', 'EditarArticuloController::actualizarArticulo');
 
-//Ruta para el admin, gestionar comentarios
+//Ruta para el admin, mostrar comentarios
 $router->get('/admin/comentarios.php', 'ComentariosController::mostrarComentarios');
+
+//Ruta para el admin, editar comentarios
+$router->get('/admin/editar_comentario.php', 'ComentariosController::editarComentario');
 
 
 // $router->get('/index.php', function() {

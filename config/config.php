@@ -12,11 +12,17 @@
     //Ruta absoluta para crear comentarios
     define('CREAR_COMENTARIOS', '/github/blog/agregarComentario.php');
 
+     //Ruta absoluta para editar comentarios
+    //  define('EDITAR_COMENTARIOS', '/github/blog/editar_comentario.php');
+
     // Para el admin
     // define('RUTA_ADMIN', 'http://localhost/github/blog/admin/');
     define('RUTA_ADMIN', '/github/blog/admin/');
 
     // Para el front
     define('RUTA_FRONT', 'http://localhost/github/blog/');
+    
+    //Ruta para el admin, crear articulos (Admin).
+    define('LISTA_COMENTARIOS', '/github/blog/admin/comentarios.php');
 
 ?>
