@@ -1,69 +1,4 @@
-<?php include("../includes/header.php") ?>
-
-
-<?php
-
-$baseDatos = new Basemysql();
-$db = $baseDatos->connect();
-
-
-//Validar si se envío el id
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-}
-
-//Instancimos el objeto
-$comentario = new Comentario($db);
-$resultado = $comentario->leer_individual($id);
-
-
-if (isset($_POST["editarComentario"])) {
-
-    $idComentario = $_POST["id"];
-    $estado = $_POST["cambiarEstado"];
-
-    $comentario = new Comentario($db);
-
-    //Crear usuario
-    if ($comentario->actualizar($idComentario, $estado)) {
-        $mensaje = "Comentario actualizado correctamente";
-        header("Location:comentarios.php?mensaje=" . urlencode($mensaje));
-        exit();
-    } else {
-        $error = "Error, no se pudo actualizar";
-    }
-}
-
-
-
-
-
-if (isset($_POST["borrarComentario"])) {
-
-    $idComentario = $_POST["id"];
-
-    $comentario = new Comentario($db);
-
-    //Crear usuario
-    if ($comentario->borrar($idComentario)) {
-        $mensaje = "Comentario borrado correctamente";
-        header("Location:comentarios.php?mensaje=" . urlencode($mensaje));
-        exit();
-    } else {
-        $error = "Error, no se pudo borrar";
-    }
-}
-
-
-
-
-
-
-
-?>
-
-
-
+<?php include_once './includes/header.php'; ?>
 
 <div class="row">
     <div class="col-sm-12">
@@ -115,4 +50,4 @@ if (isset($_POST["borrarComentario"])) {
         </form>
     </div>
 </div>
-<?php include("../includes/footer.php") ?>
+<?php include_once './includes/footer.php'; ?>

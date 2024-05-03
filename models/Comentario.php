@@ -13,9 +13,10 @@ class Comentario
     public $fecha_creacion;
 
     //Constructor de nuestra clase
-    public function __construct($db)
+    public function __construct()
     {
-        $this->conn = $db;
+        $baseDatos = new sqlConfig();
+        $this->conn = $baseDatos->connect();
     }
 
 
@@ -130,6 +131,7 @@ class Comentario
         $stmt->execute();
 
         $usuario = $stmt->fetch(PDO::FETCH_OBJ);
+    
         $idUsuario = $usuario->id;
 
         //Crear el query para la inserción del comentario

@@ -1,9 +1,11 @@
-<?php include '../config/config.php'?>
-<?php include '../config/Basemysql.php'?>
-<?php include '../helpers/helper_formatos.php'?>
-<?php include '../models/Articulo.php'?>
-<?php include '../models/Comentario.php'?>
-<?php include '../models/Usuario.php'?>
+<?php include_once './config/config.php';
+    //   include_once './config/Basemysql.php';
+      include_once './helpers/helper_formatos.php';
+    //   include_once './models/Articulo.php';
+    //   include_once './models/Comentario.php';
+    //   include_once './models/Usuario.php';
+?>
+
 
 <!doctype html>
 <html lang="es">

@@ -15,9 +15,11 @@ class Usuario
 
 
     //Constructor de nuestra clase
-    public function __construct($db)
+    public function __construct()
     {
-        $this->conn = $db;
+       
+        $baseDatos = new sqlConfig();
+        $this->conn = $baseDatos->connect();
     }
 
 
@@ -47,7 +49,7 @@ class Usuario
         $stmt->bindParam(1, $id);
         $stmt->execute();
         $usuario = $stmt->fetchAll(PDO::FETCH_OBJ);
-       
+         
         return $usuario;
     }
 

@@ -1,61 +1,4 @@
-<?php include("../includes/header.php") ?>
-
-<?php
-
-
-$baseDatos = new Basemysql();
-$db = $baseDatos->connect();
-
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-}
-
-$usuario = new Usuario($db);
-$resultado = $usuario->leer_individual($id);
-
-if (isset($_POST["editarUsuario"])) {
-
-    // Datos de usuario
-    $nombreUsuario = $_POST['nombre'];
-    $emailUsuario = $_POST['email'];
-
-    $idUsuario = $_POST["id"];
-    // Enviamos por sumbit el value del select para actualizar el rol
-    $rol = $_POST["rol"];
-
-    if (empty($idUsuario) || $idUsuario == '' || empty($rol) || $rol == '' || $nombreUsuario == '' || $emailUsuario == '') {
-        $error = "Error, algunos campos están vacíos";
-    } else {
-
-        if ($usuario->actualizar($idUsuario, $rol, $nombreUsuario, $emailUsuario)) {
-            $mensaje = "Usuario actualizado correctamente";
-            header("Location:usuarios.php?mensaje=" . urlencode($mensaje));
-            exit();
-        } else {
-            $error = "Error, no se pudo actualizar";
-        }
-    }
-}
-
-
-if (isset($_POST["borrarUsuario"])) {
-
-    $idUsuario = $_POST["id"];
-
-    $usuario = new Usuario($db);
-
-    //Crear usuario
-    if ($usuario->borrar($idUsuario)) {
-        $mensaje = "Usuario borrado correctamente";
-        header("Location:usuarios.php?mensaje=" . urlencode($mensaje));
-        exit();
-    } else {
-        $error = "Error, no se pudo actualizar";
-    }
-}
-
-?>
-
+<?php include_once './includes/header.php' ?>
 
 <div class="row">
     <div class="col-sm-6">
@@ -65,6 +8,7 @@ if (isset($_POST["borrarUsuario"])) {
 <div class="row">
     <div class="col-sm-6 offset-3">
         <form method="POST" action="">
+            <?php foreach ($usuarios as $resultado){ ?>
 
             <input type="hidden" name="id" value="<?php echo $resultado->usuario_id; ?>">
 
@@ -91,7 +35,7 @@ if (isset($_POST["borrarUsuario"])) {
 
                 </select>
             </div>
-
+                                        <?php } ?>
             <br />
             <button type="submit" name="editarUsuario" class="btn btn-success float-left"><i class="bi bi-person-bounding-box"></i> Editar Usuario</button>
 
@@ -99,4 +43,4 @@ if (isset($_POST["borrarUsuario"])) {
         </form>
     </div>
 </div>
-<?php include("../includes/footer.php") ?>
+<?php include_once './includes/footer.php' ?>

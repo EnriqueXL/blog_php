@@ -1,4 +1,6 @@
-
+<?php 
+    include_once './includes/header_front.php';
+?>
 
 <div class="container">
     <h1 class="text-center">Artículos</h1>
@@ -20,4 +22,5 @@
 </div>
 
 
-<!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+<?php include_once './includes/footer.php'; ?>
+

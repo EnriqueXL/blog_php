@@ -1,17 +1,5 @@
-<?php include("../includes/header.php") ?>
+<?php include_once './includes/header.php'; ?>
 
-<?php
-
-//intancias la bd y la conexion
-$baseDatos = new Basemysql();
-$db = $baseDatos->connect();
-
-//Instancimos el objeto
-
-$articulo =  new Articulo($db);
-$resultado = $articulo->leer();
-
-?>
 
 
 <div class="row">
@@ -23,6 +11,12 @@ $resultado = $articulo->leer();
             Artículo</a>
     </div>
 </div>
+
+<?php 
+    if (isset($mensaje)) {
+        echo '<div class="alert alert-info" role="alert">' . $mensaje . '</div>';
+    }
+?>
 <div class="row mt-2 caja">
     <div class="col-sm-12">
         <table id="tblArticulos" class="display" style="width:100%">
@@ -39,8 +33,9 @@ $resultado = $articulo->leer();
             <tbody>
 
                 <?php foreach ($resultado as $articulo){ ?>
-
+                 
                     <tr>
+                     
                         <td><?php echo $articulo->id ?></td>
                         <td><?php echo $articulo->titulo ?></td>
                         <td>
@@ -58,7 +53,7 @@ $resultado = $articulo->leer();
         </table>
     </div>
 </div>
-<?php include("../includes/footer.php") ?>
+<?php include_once './includes/footer.php'; ?>
 
 <script>
     $(document).ready(function() {
