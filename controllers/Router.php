@@ -12,7 +12,7 @@ include_once 'MostrarArticulosAdminController.php';
 include_once 'EditarArticuloController.php';
 include_once 'CrearArticuloController.php';
 include_once 'ComentariosController.php';
-
+include_once 'UsuariosController.php';
 include_once './config/config.php';
 
 
@@ -77,6 +77,12 @@ $router->get('/admin/comentarios.php', 'ComentariosController::mostrarComentario
 
 //Ruta para el admin, editar comentarios
 $router->get('/admin/editar_comentario.php', 'ComentariosController::editarComentario');
+
+//Ruta para el admin, mostrar usuarios
+$router->get('/admin/usuarios.php', 'UsuariosController::mostrarUsuarios');
+
+//Ruta para el admin, editar usuarios
+$router->get('/admin/editar_usuario.php', 'UsuariosController::editarUsuarios');
 
 
 // $router->get('/index.php', function() {

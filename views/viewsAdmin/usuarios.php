@@ -1,17 +1,4 @@
-<?php include("../includes/header.php") ?>
-
-
-<?php 
-
-   $baseDatos = new Basemysql();
-   $db = $baseDatos->connect();
-
-    //Instancimos el objeto
-    $usuarios = new Usuario($db);
-    $resultado = $usuarios->leer();
-
-?>
-
+<?php include_once './includes/header.php' ?>
 
 <div class="row">
     <div class="col-sm-6">
@@ -51,7 +38,8 @@
         </table>
     </div>
 </div>
-<?php include("../includes/footer.php") ?>
+
+<?php include_once './includes/footer.php' ?>
 
 <script>
 $(document).ready(function() {
