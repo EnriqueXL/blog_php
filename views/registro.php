@@ -1,51 +1,4 @@
-<?php include("includes/header_front.php") ?>
-
-
-<?php
-
-
-$baseDatos = new Basemysql();
-$db = $baseDatos->connect();
-
-$usuario = new Usuario($db);
-
-
-if (isset($_POST['registrarse'])) {
-
-    $nombre = $_POST["nombre"];
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-    $confirmarPassword = $_POST["confirmar_password"];
-
-
-    if (empty($nombre) || $nombre == '' || empty($email) || $email == '' || empty($password) || $password == '' || empty($confirmarPassword) || $confirmarPassword == '') {
-        $error = "Error, algunos campos están vacíos";
-    } else {
-
-        if ($password != $confirmarPassword) {
-            $error = "Error, la contraseña y la confirmación no coinciden";
-        } else {
-
-
-            $articulo = new Articulo($db);
-
-            if ($usuario->validar_email($email)) {
-
-
-                if ($usuario->registrar($nombre, $email, $password)) {
-                    $mensaje = "Te has registrado correctamente, click en el botón acceder para ingresar";
-                } else {
-                    $error = "Error, no se pudo registrar el usuario";
-                }
-            } else {
-
-                $error = "Error, este email ya se encuentra registrado";
-            }
-        }
-    }
-}
-
-?>
+<?php include_once './includes/header.php' ?>
 
 <div class="container-fluid">
     <h1 class="text-center">Registro de Usuarios</h1>
@@ -87,4 +40,5 @@ if (isset($_POST['registrarse'])) {
     </div>
 
 </div>
-<?php include("includes/footer.php") ?>
+
+<?php include_once './includes/footer.php' ?>

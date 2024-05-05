@@ -1,10 +1,12 @@
 <?php
-
 ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+session_start();
 
+//Configuración del path
+include_once './config/config.php';
 //Controladores importados
+include_once 'loginController.php';
 include_once 'ArticuloController.php';
 include_once 'DetalleArticuloController.php';
 // include_once 'agregarComentarioController.php';
@@ -13,7 +15,7 @@ include_once 'EditarArticuloController.php';
 include_once 'CrearArticuloController.php';
 include_once 'ComentariosController.php';
 include_once 'UsuariosController.php';
-include_once './config/config.php';
+
 
 
 
@@ -47,6 +49,11 @@ $router = new Router();
 // Guia para crear rutas
 //IMPORTAR EL CONTROLADOR QUE SE VA A USAR
 // $router->get('/pagina que se ingresara a la url', 'nombre_de_la_clase::nombre_de_la_funcion');
+//login de usuarios
+$router->get('/acceder.php', 'loginController::accederUsuario');
+
+//Registro de usuarios
+$router->get('/registro.php', 'UsuariosController::registrarUsuario');
 
 //Redirijir a la página principal
 $router->get('/inicio', 'ArticuloController::index');
