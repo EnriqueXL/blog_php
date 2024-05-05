@@ -2,6 +2,16 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 session_start();
+if (!isset($_SESSION['autenticado'])) {
+    $_SESSION['autenticado'] = false;
+}
+// else{
+//     if (session_destroy()) {
+//         echo "Sesión destruida correctamente";
+//     } else {
+//         echo "Error al destruir la sesión";
+//     }
+// }
 
 //Configuración del path
 include_once './config/config.php';
@@ -16,9 +26,6 @@ include_once 'CrearArticuloController.php';
 include_once 'ComentariosController.php';
 include_once 'UsuariosController.php';
 
-
-
-
 // Router.php
 class Router {
 
@@ -31,7 +38,7 @@ class Router {
 
     public function resolve() {
         $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-        $path = str_replace(BASE_PATH, '', $path); // Asegúrate de reemplazar '/github/blog' con la ruta base de tu aplicación
+        $path = str_replace(BASE_PATH, '', $path); // Elimina el path base de la URL
     
         $callback = $this->routes[$path] ?? false;
     
@@ -39,7 +46,16 @@ class Router {
             require_once("./views/404.php"); 
             return;
         }
-    
+
+        // Lista de rutas que no requieren autenticación
+        $publicRoutes = ['/acceder.php', '/registro.php'];
+
+        // Valida el Path con la ruta es decir /github/blog/ + /acceder.php o /registro.php
+        //Verificar si el usuario está autenticado
+        if (!in_array($path, $publicRoutes) && $_SESSION['autenticado'] == false) {
+            header("Location: ".REGISTRO."");
+        exit;
+    }
         echo call_user_func($callback);
     }
 }
@@ -49,6 +65,7 @@ $router = new Router();
 // Guia para crear rutas
 //IMPORTAR EL CONTROLADOR QUE SE VA A USAR
 // $router->get('/pagina que se ingresara a la url', 'nombre_de_la_clase::nombre_de_la_funcion');
+
 //login de usuarios
 $router->get('/acceder.php', 'loginController::accederUsuario');
 
@@ -91,6 +108,8 @@ $router->get('/admin/usuarios.php', 'UsuariosController::mostrarUsuarios');
 //Ruta para el admin, editar usuarios
 $router->get('/admin/editar_usuario.php', 'UsuariosController::editarUsuarios');
 
+//Ruta para cerrar sesion
+$router->get('/salir.php', 'loginController::destruirSesion');
 
 // $router->get('/index.php', function() {
     

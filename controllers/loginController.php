@@ -26,11 +26,7 @@ class loginController
                     $_SESSION['autenticado'] = true;
                     $_SESSION['usuario'] = $email;
 
-                    var_dump($_SESSION['usuario']);
-                    exit;
-
                     header("Location:" . INICIO . "");
-                    
                     
                 } else {
                     $error = "Error, no pudo ingresar";
@@ -44,7 +40,17 @@ class loginController
         //     header("Location:" . REGISTRO . "");
         // }
 
-
         include_once "./views/acceder.php";
+    }
+
+    public static function destruirSesion()
+    {
+        if (session_destroy()) {
+           include_once "./views/salir.php";
+        } else {
+            echo "Error al cerrar la sesión";
+            var_dump('error');
+            exit;
+        }
     }
 }

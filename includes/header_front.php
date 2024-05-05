@@ -75,7 +75,7 @@
                         <p class="text-white mt-2"><i class="bi bi-person-circle"></i> </p>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo RUTA_FRONT; ?>acceder.php">Salir</a>
+                        <a class="nav-link" href="<?php echo RUTA_FRONT; ?>salir.php">Salir</a>
                     </li>
 
                 </ul>

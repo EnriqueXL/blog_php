@@ -29,11 +29,11 @@
                                     class="bi bi-person-bounding-box"></i> Acceder</button>
                         </div>
                    
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                             <button type="submit" class="btn btn-success w-100"><i
                                     class="bi bi-person-bounding-box"></i> Registrarse</button>
                                    
-                        </div>
+                        </div> -->
                     </form>
                 </div>
             </div>
