@@ -25,14 +25,14 @@
 
     <link rel="stylesheet" href="../css/estilos.css">
 
-    <title>Blog PHP 8</title>
+    <title>Cerebros colectivos</title>
 </head>
 
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="<?php echo RUTA_FRONT; ?>">Blog PHP 8</a>
+            <a class="navbar-brand" href="<?php echo RUTA_FRONT; ?>">Cerebros colectivos</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -41,51 +41,52 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
+                    <?php if (isset($_SESSION['autenticado']) && $_SESSION['autenticado'] == true) { ?>
 
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Administración
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="<?php echo RUTA_ADMIN; ?>articulos.php">Artículos</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="<?php echo RUTA_ADMIN; ?>comentarios.php">Comentarios</a>
+                                </li>
+                            </ul>
+                        </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Administración
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li>
-                                <a class="dropdown-item" href="<?php echo RUTA_ADMIN; ?>articulos.php">Artículos</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="<?php echo RUTA_ADMIN; ?>comentarios.php">Comentarios</a>
-                            </li>
-                        </ul>
-                    </li>
-
-
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo RUTA_ADMIN; ?>usuarios.php">Usuarios</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo RUTA_ADMIN; ?>usuarios.php">Usuarios</a>
+                        </li>
+                    <?php } ?>
 
                 </ul>
 
                 <ul class="navbar-nav mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo RUTA_FRONT; ?>">Inicio</a>
-                    </li>
+                    <?php if (isset($_SESSION['autenticado']) && $_SESSION['autenticado'] == true) { ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo RUTA_FRONT; ?>">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <p class="text-white mt-2"><i class="bi bi-person-circle"></i></p>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo RUTA_FRONT; ?>acceder.php">Salir</a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo RUTA_FRONT; ?>registro.php">Registrarse</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo RUTA_FRONT; ?>acceder.php">Acceder</a>
-                    </li>
+                    <?php }else{  ?> 
 
-
-                    <li class="nav-item">
-                        <p class="text-white mt-2"><i class="bi bi-person-circle"></i></p>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo RUTA_FRONT; ?>acceder.php">Salir</a>
-                    </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo RUTA_FRONT; ?>registro.php">Registrarse</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo RUTA_FRONT; ?>acceder.php">Acceder</a>
+                        </li>      
+                        
+                    <?php } ?>
                 </ul>
 
             </div>
