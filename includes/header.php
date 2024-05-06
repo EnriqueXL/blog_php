@@ -40,9 +40,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                    <?php if (isset($_SESSION['autenticado']) && $_SESSION['autenticado'] == true) { ?>
-
-                      <?php  if ($rol_id == 1) { ?>
+                    <?php if (isset($_SESSION['autenticado']) && $_SESSION['autenticado'] == true && $rol_id == 1) { ?>
+                        
                         <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -61,7 +60,6 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo RUTA_ADMIN; ?>usuarios.php">Usuarios</a>
                             </li>
-                      <?php } ?>
                     <?php } ?>
 
                 </ul>
