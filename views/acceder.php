@@ -1,38 +1,5 @@
-<?php include("includes/header_front.php") ?>
+<?php include_once './includes/header.php' ?>
 
-<?php 
-
- //Instanciar base de datos y conexión
-    $baseDatos = new Basemysql();
-    $db = $baseDatos->connect();
-
-
-     $usuario = new Usuario($db);
-
-     if (isset($_POST['acceder'])) {
-
-        $email = $_POST["email"];
-        $password = $_POST["password"];
-
-        if (empty($email) || $email == '' || empty($password) || $password == '') {
-            $error = "Error, algunos campos están vacíos";
-            
-        }else{
-            if ($usuario->acceder($email, $password)) {
-               
-                $_SESSION['autenticado'] = true;
-                $_SESSION['email'] = $email;            
-
-                echo("<script>location.href = '".RUTA_FRONT."'</script>");
-
-            }else{
-                $error = "Error, no pudo ingresar";
-            }
-        }
-
-     }
-
-?>
 
 <div class="container-fluid">
     <h1 class="text-center">Acceso de Usuarios</h1>
@@ -44,8 +11,6 @@
                 </div>
                 <div class="card-body">
                     <form method="POST" action="">
-
-
 
                         <div class="mb-3">
                             <label for="email" class="form-label">Email:</label>
@@ -59,8 +24,16 @@
                         </div>
 
                         <br />
-                        <button type="submit" name="acceder" class="btn btn-primary w-100"><i
-                                class="bi bi-person-bounding-box"></i> Acceder</button>
+                        <div class="mb-3">
+                            <button type="submit" name="acceder" class="btn btn-primary w-100"><i
+                                    class="bi bi-person-bounding-box"></i> Acceder</button>
+                        </div>
+                   
+                        <!-- <div class="mb-3">
+                            <button type="submit" class="btn btn-success w-100"><i
+                                    class="bi bi-person-bounding-box"></i> Registrarse</button>
+                                   
+                        </div> -->
                     </form>
                 </div>
             </div>
@@ -68,4 +41,5 @@
     </div>
 
 </div>
-<?php include("includes/footer.php") ?>
+
+<?php include_once './includes/footer.php' ?>

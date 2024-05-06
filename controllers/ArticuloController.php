@@ -8,6 +8,10 @@ class ArticuloController {
         $articulos = new Articulo();
         $resultado = $articulos->leer();
 
+        // if ($_SESSION['autenticado'] == false) {
+        //     header("Location: ".REGISTRO."");
+        // }
+
         require_once("./views/paginaPrincipal.php");     
     }
 }

@@ -5,6 +5,46 @@ require_once "./config/config.php";
 
 class UsuariosController
 {
+    public static function registrarUsuario()
+    {
+        $usuario = new Usuario();
+
+        if (isset($_POST['registrarse'])) {
+
+            $nombre = $_POST["nombre"];
+            $email = $_POST["email"];
+            $password = $_POST["password"];
+            $confirmarPassword = $_POST["confirmar_password"];
+
+
+            if (empty($nombre) || $nombre == '' || empty($email) || $email == '' || empty($password) || $password == '' || empty($confirmarPassword) || $confirmarPassword == '') {
+                $error = "Error, algunos campos están vacíos";
+            } else {
+
+                if ($password != $confirmarPassword) {
+                    $error = "Error, la contraseña y la confirmación no coinciden";
+                } else {
+
+                    if ($usuario->validar_email($email)) {
+                        
+                        if ($usuario->registrar($nombre, $email, $password)) {
+                            $mensaje = "Te has registrado correctamente, click en el botón acceder para ingresar";
+                            $_SESSION['autenticado'] = true;
+                            $_SESSION['usuario'] = $email;
+                        } else {
+                            $error = "Error, no se pudo registrar el usuario";
+                        }
+                    } else {
+
+                        $error = "Error, este email ya se encuentra registrado";
+                    }
+                }
+            }
+        }
+
+        include_once "./views/registro.php";
+    }
+
     public static function mostrarUsuarios()
     {
         $baseDatos = new sqlConfig();
@@ -73,6 +113,5 @@ class UsuariosController
         }
 
         include_once "./views/viewsAdmin/editar_usuario.php";
-    
     }
 }

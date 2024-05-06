@@ -13,6 +13,10 @@ class ComentariosController
         $comentarios = new Comentario();
         $listaComentarios = $comentarios->leer();
 
+        // if ($_SESSION['autenticado'] == false) {
+        //     header("Location: ".REGISTRO."");
+        // }
+
         require_once("./views/viewsAdmin/comentarios.php");
         exit;
         // header("Location: " . BASE_PATH . "/views/viewsAdmin/comentarios.php");

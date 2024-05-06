@@ -23,7 +23,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="<?php echo INICIO; ?>">Blog PHP 8</a>
+            <a class="navbar-brand" href="<?php echo INICIO; ?>">Cerebros Colectivos</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -38,6 +38,7 @@
                             Administración
                         </a>
 
+                        
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li>
                                 <a class="dropdown-item" href="<?php echo RUTA_ADMIN; ?>articulos.php">Artículos</a>
@@ -62,12 +63,12 @@
                         <a class="nav-link" href="<?php echo RUTA_FRONT; ?>index.php">Inicio</a>
                     </li>
 
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="<?php echo RUTA_FRONT; ?>registro.php">Registrarse</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo RUTA_FRONT; ?>acceder.php">Acceder</a>
-                    </li>
+                    </li> -->
 
 
 
@@ -75,7 +76,7 @@
                         <p class="text-white mt-2"><i class="bi bi-person-circle"></i> </p>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo RUTA_FRONT; ?>acceder.php">Salir</a>
+                        <a class="nav-link" href="<?php echo RUTA_FRONT; ?>salir.php">Salir</a>
                     </li>
 
                 </ul>

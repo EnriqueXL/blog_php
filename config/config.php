@@ -25,4 +25,7 @@
     //Ruta para el admin, crear articulos (Admin).
     define('LISTA_COMENTARIOS', '/github/blog/admin/comentarios.php');
 
+    //Ruta para crear usuario
+    define('REGISTRO', '/github/blog/acceder.php');
+
 ?>

@@ -142,9 +142,7 @@ class Usuario
 
     public function acceder($email, $password)
     {
-
         $query = 'SELECT * FROM ' . $this->table . ' WHERE email = :email AND password = :password';
-
 
         //Encriptar el password MD5
         $passwordEncriptado = md5($password);
