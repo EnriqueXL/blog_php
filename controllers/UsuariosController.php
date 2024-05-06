@@ -31,6 +31,8 @@ class UsuariosController
                             $mensaje = "Te has registrado correctamente, click en el botón acceder para ingresar";
                             $_SESSION['autenticado'] = true;
                             $_SESSION['usuario'] = $email;
+
+                            header("Location:" . INICIO . "");
                         } else {
                             $error = "Error, no se pudo registrar el usuario";
                         }

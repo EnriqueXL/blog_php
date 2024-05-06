@@ -33,8 +33,8 @@ class DetalleArticuloController {
             //Obtener los valores
             $idArticulo = $_POST['articulo'];
             // $email = $_POST['usuario'];
-            // $email = $_SESSION['email'];
-            $email = 'luis@info.com';
+            $email = $_SESSION['usuario'];
+         
             $comentario = $_POST['comentario'];
 
             if (empty($email) || $email == '' || empty($comentario) || $comentario == '') {
