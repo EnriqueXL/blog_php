@@ -1,6 +1,6 @@
 <?php
 
-ini_set('display_errors', 1);
+ini_set('display_errors', 0);
 error_reporting(E_ALL);
 class loginController
 {
@@ -25,7 +25,8 @@ class loginController
 
                     $_SESSION['autenticado'] = true;
                     $_SESSION['usuario'] = $email;
-
+                    $_SESSION['rol_id'] =  $usuario->obtenerRol($email);
+                  
                     header("Location:" . INICIO . "");
                     
                 } else {

@@ -162,4 +162,23 @@ class Usuario
             return false;
         }
     }
+    public function obtenerRol($email){
+
+        $query = 'SELECT * FROM ' . $this->table . ' WHERE email = :email';
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->bindParam(":email", $email, PDO::PARAM_STR);
+
+        $resultado = $stmt->execute();
+
+        $existeUsuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($existeUsuario) {
+            return $existeUsuario['rol_id'];
+        }else{
+            return false;
+        }
+   
+    }
 }

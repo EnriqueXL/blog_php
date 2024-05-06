@@ -1,7 +1,5 @@
 <?php include_once './includes/header.php' ?>
 
-
-
     <div class="row">
         <div class="col-sm-12">
             <?php if (isset($error)) : ?>

@@ -1,3 +1,7 @@
+<?php 
+    $usuario = $_SESSION['usuario']; 
+    $rol_id = $_SESSION['rol_id'];
+?>
 <!doctype html>
 <html lang="es">
 
@@ -32,31 +36,29 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Administración
-                        </a>
+                    <?php if ($rol_id == 1) { ?>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Administración
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="<?php echo RUTA_ADMIN; ?>articulos.php">Artículos</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="<?php echo RUTA_ADMIN; ?>comentarios.php">Comentarios</a>
+                                </li>
+                            </ul>
+                        </li>
 
-                        
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li>
-                                <a class="dropdown-item" href="<?php echo RUTA_ADMIN; ?>articulos.php">Artículos</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="<?php echo RUTA_ADMIN; ?>comentarios.php">Comentarios</a>
-                            </li>
-                        </ul>
-
-                    </li>
-
-
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo RUTA_ADMIN; ?>usuarios.php">Usuarios</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo RUTA_ADMIN; ?>usuarios.php">Usuarios</a>
+                        </li>
+                    <?php } ?>
 
                 </ul>
+          
 
                 <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -69,16 +71,18 @@
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo RUTA_FRONT; ?>acceder.php">Acceder</a>
                     </li> -->
+                    <li class="nav-item dropdown "> 
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <?php echo $usuario ?> <i class="bi bi-person-circle"></i>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li class="nav-item">
+                            <a style="color: black;" class="nav-link" href="<?php echo RUTA_FRONT; ?>salir.php">Salir</a>
+                        </li>
 
-
-
-                    <li class="nav-item">
-                        <p class="text-white mt-2"><i class="bi bi-person-circle"></i> </p>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo RUTA_FRONT; ?>salir.php">Salir</a>
-                    </li>
-
                 </ul>
             </div>
         </div>
