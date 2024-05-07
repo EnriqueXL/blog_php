@@ -1,4 +1,4 @@
-<?php include("includes/header_front.php") ?>
+<?php include("includes/header.php") ?>
 
 <div class="container-fluid">
 
