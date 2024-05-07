@@ -24,6 +24,7 @@ $rol_id = $_SESSION['rol_id'];
 
     <link rel="stylesheet" href="../css/estilos.css">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>Cerebros colectivos</title>
 </head>
 

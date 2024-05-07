@@ -57,7 +57,7 @@
 
     <?php foreach ($resultado2 as $comentario) : ?>
 
-        <h4><i class="bi bi-person-circle"></i> &nbsp;&nbsp;<?php echo 'Usuario: ' . $comentario->nombre_usuario; ?></h4>
+        <h4><i class="bi bi-person-circle"></i>&nbsp;<?php echo 'Usuario: ' . $comentario->nombre_usuario; ?></h4>
         <p><?php echo 'Mensaje: ' . $comentario->comentario; ?></p>
     <?php endforeach; ?>
 
