@@ -121,12 +121,12 @@ class Articulo
             $stmt->bindParam(":imagen", $newImageName, PDO::PARAM_STR);
             $stmt->bindParam(":id", $id, PDO::PARAM_INT);
 
-
             //Ejecutar query
             if ($stmt->execute()) {
                 return true;
             }else{
                 $mensaje = "Error al actualizar el titulo, el texto y la imagen";
+                return false;
             }
         }
 

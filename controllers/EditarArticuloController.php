@@ -63,19 +63,21 @@ class EditarArticuloController
                     $imageArr = explode('.', $image);
                     $rand = rand(1000, 99999);
                     $newImageName = $imageArr[0] . $rand . '.' . $imageArr[1];
-                    $rutaFinal = "../img/articulos/" . $newImageName;
+                    $rutaFinal = "img/articulos/" . $newImageName;
                     move_uploaded_file($_FILES['imagen']['tmp_name'], $rutaFinal);
 
                     $articulo = new Articulo($db);
 
                     if ($articulo->actualizar($idArticulo, $titulo, $texto, $newImageName)) {
                         $mensaje = "Artículo acutalizado correctamente";
+                        // echo $mensaje;
                         header("Location: " . RUTA_ADMIN . "articulos.php");   
                         // include_once './views/viewsAdmin/articulos.php';
                         exit;
                        
                     } else {
                         $error = "Error, no se pudo actualizar";
+                        echo $error;
                     }
                 }
             }
