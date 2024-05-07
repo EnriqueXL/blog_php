@@ -1,5 +1,5 @@
 <?php 
-    include_once './includes/header_front.php';
+    include_once './includes/header.php';
 ?>
 
 <div class="container">

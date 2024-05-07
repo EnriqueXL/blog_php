@@ -47,7 +47,7 @@ class loginController
     public static function destruirSesion()
     {
         if (session_destroy()) {
-           include_once "./views/salir.php";
+            include_once "./views/salir.php";
         } else {
             echo "Error al cerrar la sesión";
             var_dump('error');
